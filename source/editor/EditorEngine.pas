@@ -29,6 +29,7 @@ Portable Notes:
   Main folder related to project folder, Project folder related to Project File folder
   Paths in Variables should not delimited by PathDelimiter, use ExcludePathDelimiter()
 }
+
 interface
 
 uses
@@ -1605,12 +1606,12 @@ function ConvertLineIndents(const Line: String; TabWidth: Integer; Options: TInd
 //EnumFileList return false if canceled by callback function
 type
   TFileFindTypes = set of (fftDir, fftFile);
+  TEnumFilesCallback = procedure(AObject: TObject; const FileName: string; Count, Level:Integer; IsDirectory: Boolean; var Resume: Boolean);
 
 procedure CancelSearch;
 function EnumFileList(const Root, Masks, Ignore: String; Callback: TEnumFilesCallback; AObject: TObject; vMaxCount, vMaxLevel: Integer; ReturnFullPath: Boolean; Types: TFileFindTypes = [fftFile]): Boolean;
 procedure EnumFileList(const Root, Masks, Ignore: String; Strings: TStringList; vMaxCount, vMaxLevel: Integer; ReturnFullPath: Boolean);
 procedure EnumDirList(const Root, Masks, Ignore: String; Strings: TStringList; vMaxCount, vMaxLevel: Integer; ReturnFullPath: Boolean);
-
 
 const
   sEnvVarChar = '?';
