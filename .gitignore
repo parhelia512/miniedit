@@ -1,3 +1,5 @@
+backups
+backup
 .svn
 .git
 bin/*.exe
@@ -8,3 +10,5 @@ units
 /source/gui/mne.res
 /release
 /bin/ThemeDefault.inc
+__pycache__
+*.or
